@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Tutor List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+</head>
+<body style="margin: 15px;">
+	<h1>Tutor List</h1>
+	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
+	</div>
+	
+	<table class="table table-striped">
+		<tr>
+		  <th>First name</th>
+		    <th>Last name</th>
+		    <th>Email</th>
+		    <th>Address</th>
+		    <th>Phone number</th>
+		    <th>Date of birth</th>
+		    <th>Department</th>
+			<th>Edit</th>
+			<th sec:authorize="hasAuthority('ADMIN')"> Delete </th>
+		</tr>
+<tr th:each = "tutor : ${tutors}">
+    		<td th:text="${tutor.firstName}"></td>
+    		<td th:text ="${tutor.lastName}"></td>
+    		<td th:text="${tutor.email}"></td>
+    		<td th:text="${tutor.address}"></td>
+    		<td th:text="${tutor.phone}"></td>
+    		<td th:text="${tutor.dob}"></td>
+    		<td th:text="${tutor.department.name}"></td> 	
+			<td><a th:href="@{/edit/{id}(id=${tutor.id})}"
+				class="btn btn-warning"> Edit </a></td>
+			<td sec:authorize="hasAuthority('ADMIN')">
+				<a th:href="@{/delete/{id}(id=${tutor.id})}"
+					class="btn btn-xs btn-danger">Delete</a></td>
+		</tr>
+	</table>
+
+	<a href="/">Back to main page</a> <br>
+	<a href="/add"> Add new tutor</a>
+</body>
+</html>
