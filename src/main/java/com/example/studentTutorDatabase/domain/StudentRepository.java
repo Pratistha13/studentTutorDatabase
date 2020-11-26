@@ -5,14 +5,15 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-public interface TutorRepository extends CrudRepository<Tutor, Long> {
+public interface StudentRepository extends CrudRepository<Student, Long> {
 
    //Fetch by lastName
-	List<Tutor> findBylastName(@Param("lastName") String lastName);
+	List<Student> findBylastName(@Param("lastName") String lastName);
 	
 
 	 //Fetch by firstName
-	List<Tutor> findByfirstName(@Param("firstName") String firstName);
-
+	List<Student> findByfirstName(@Param("firstName") String firstName);
+	
+	
     
 }

@@ -1,27 +1,53 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-<title>Tutor List</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- <link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		crossorigin="anonymous">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+	crossorigin="anonymous"></script>
+<title>Student Tutor Database</title>
+<meta>
 </head>
-<body style="margin: 15px;">
-	<h1>Tutor Database</h1>
-	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+<body>
+	<div class="container">
+		<div th:fragment="header">
+			<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+				<!-- Brand/logo -->
+				<a class="navbar-brand" href="#">
+				</a>
+				<!-- Links -->				
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link" href="#"
+						th:href="@{/}">Home</a></li>	
+					<li class="nav-item"><a class="nav-link" href="#"
+						th:href="@{/list}">Tutors</a></li>					
+					<li class="nav-item "><a class="nav-link" href="#"
+						th:href="@{/stlist}">Students </a></li>						
+					<li class="nav-item"><a class="nav-link" href="#"
+						th:href="@{/addpic}">Upload pictures </a></li>
+				</ul>
+		</nav>
+		</div>
+		<div class="jumbotron text-center">
+			<div style="margin: 0, auto">
+				<div class="" style="margin: 0, auto">
+					<h3 th:inline="text" style="text-align: center; color: green">Welcome
+						[[${#httpServletRequest.remoteUser}]]</h3>
+					<h3 class="display-4">Student Tutor Database</h3>
+				</div>
+			</div>
+			</div>
+			
 
-	<div class="col-md-4" style="padding: 20px 0">
-		<form th:action="@{/logout}" method="post">
+	<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
 		</form>
-	</div>
-	<ul>
-		<li><a href="/add">Add tutor</a></li>
-		<li><a href="/list">Show tutor list</a></li>
-	</ul>
-
-
+		</div>
 </body>
 </html>
+
+

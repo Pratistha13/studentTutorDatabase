@@ -87,5 +87,5 @@ public class TutorController {
 		repository.deleteById(tutorId);
 		return "redirect:../list";
 	}
-
+	
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Student List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+ <link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+</head>
+<body style= "margin: 15px;">
+
+<h1 th:text ="'Edit student'"></h1>
+	
+		<div class="form-group">
+		<form class="form-horizontal" action="#" th:action="@{/submitstudent}" th:object="${student}"
+			method="post">
+			<input type="hidden" id="id" th:field="*{id}" />
+			
+		  	<label for="firstName">First name</label>
+			<input type="text" id="firstName" th:field="*{firstName}" />
+			
+		  	<label for="lastName">Last name</label>
+			<input type="text" id="lastName" th:field="*{lastName}" />
+			
+		  	<label for="email">Email</label>
+			<input type="text" id="email" th:field="*{email}" />
+			
+		  	<label for="semester">Semester</label>
+			<input type="text" id="semester" th:field="*{semester}" /><br />
+			
+		  	<label for="phone">Phone number</label>
+			<input type="text" id="phone" th:field="*{phone}" />
+			
+			<label for="deptlist" class="control-label col-sm-2">Department</label> 
+			<select id="deptlist" th:field="*{department}" class="form-control">
+				<option th:each="department: ${departments}" th:value="${department.departmentid}" th:text="${department.name}"></option>
+			</select> <br>
+
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<input type="submit"  class="btn btn-success" value="Submit" />
+
+		</form>
+	</div>
+	
+</body>
+</html>

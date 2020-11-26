@@ -1,6 +1,9 @@
 package com.example.studentTutorDatabase;
 
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.studentTutorDatabase.domain.Department;
 import com.example.studentTutorDatabase.domain.DepartmentRepository;
+import com.example.studentTutorDatabase.domain.Student;
+import com.example.studentTutorDatabase.domain.StudentRepository;
 import com.example.studentTutorDatabase.domain.Tutor;
 import com.example.studentTutorDatabase.domain.TutorRepository;
 import com.example.studentTutorDatabase.domain.User;
@@ -25,7 +30,12 @@ public class StudentTutorDatabaseApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner tutorDemo(TutorRepository repository, DepartmentRepository drepository, UserRepository urepository) {
+	Path path(){
+		return Paths.get(System.getProperty("java.io.tmpdir"));
+	}
+	
+	@Bean
+	public CommandLineRunner tutorDemo(TutorRepository repository, DepartmentRepository drepository, UserRepository urepository, StudentRepository srepository) {
 		return (args) -> {
 			log.info("save a couple of Departments");
 			Department d1 = new Department("IT");
@@ -44,7 +54,7 @@ public class StudentTutorDatabaseApplication {
 			drepository.save(d7);
 			
 			
-			
+			log.info("save some tutors");
 			repository.save(new Tutor("John", "Johnson", "john@john.com", "Arabianranta 2A, Helsinki", "0456892342", "1984-02-12", d1));
 			repository.save(new Tutor("Mary", "Sluis", "mary@sluis.com", "Toronto, Canada", "0406012345", "1982-08-19", d2));
 			repository.save(new Tutor("Kyoichi", "Maliniak", "Malinaik@haaga.com", "Pasila, Helsinki", "123456", "1983-05-10", d3));
@@ -61,6 +71,24 @@ public class StudentTutorDatabaseApplication {
 			repository.save(new Tutor("Asmara", "Riaz", "asmara@haaga-helia.com", "Jarvenpää", "0983476", "1994-08-17", d4));
 			repository.save(new Tutor("Joanna", "Tohila", "joanna@haaga-helia.com", "Srilanka", "436782", "1995-08-03", d1));
 			repository.save(new Tutor("Tiina", "Haapala", "tiina@haaga-helia.com", "Nokia, Finland", "09872345", "1982-03-20", d2));
+			
+			
+			log.info("save some students");
+			srepository.save(new Student("Helena", "Trump", "helena@haaga-helia.com", "3rd", "0456892342", d1));
+			srepository.save(new Student("Angela", "Toivonen", "angelaToi@haaga-helia.com", "1st", "047612323", d4));
+			srepository.save(new Student("Jaana", "Kusisto", "jaana@haaga-helia.com", "3rd", "0458923894", d2));
+			srepository.save(new Student("Johanna", "Jim", "johanna@haaga-helia.com", "2nd", "04777777", d1));
+			srepository.save(new Student("Jennamari", "Kanervala", "jenna@haaga-helia.com", "final", "046666642", d7));
+			srepository.save(new Student("Sonia", "Pesonen", "sonia@haaga-helia.com", "third", "042222222", d5));
+			srepository.save(new Student("Anni", "Sirku", "anni@haaga-helia.com", "second", "042234333", d6));
+			srepository.save(new Student("Sini", "Hinkkula", "sini@haaga-helia.com", "first", "043680000", d1));
+			srepository.save(new Student("Nelly", "Ahola", "nelly@haaga-helia.com", "fourth", "045685555", d2));
+			srepository.save(new Student("Emmi", "Halonen", "emmy@haaga-helia.com", "sixth", "04565332", d3));
+			srepository.save(new Student("Tania", "Koskonen", "tania@haaga-helia.com", "2nd", "04566556", d5));
+			srepository.save(new Student("Tom", "Pownall", "tom@haaga-helia.com", "3rd", "0987265", d4));
+			srepository.save(new Student("Andrea", "Bigeweea", "andrea@haaga-helia.com", "first", "04566432", d1));
+			srepository.save(new Student("Jonas", "Niemi", "Jonas@haaga-helia.com", "1st", "7456342", d7));
+			srepository.save(new Student("Charles", "Jackkson", "charles@haaga-helia.com", "3rd", "4567889", d6));
 			
 			
 			// Create users: admin/admin user/user
