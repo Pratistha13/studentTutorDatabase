@@ -26,6 +26,8 @@ public class Tutor {
     @JsonIgnore
     @JoinColumn(name = "departmentid")
     private Department department;
+    
+
 
     public Tutor() {
 	}
@@ -51,6 +53,7 @@ public class Tutor {
 		this.phone = phone;
 		this.dob= dob;		
 		this.department = department;
+		
 	}
 
 	public Long getId() {
@@ -101,6 +104,8 @@ public class Tutor {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+
+	
 	@Override
 	public String toString() {
 		return "Tutor [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email

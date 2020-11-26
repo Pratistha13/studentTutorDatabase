@@ -9,8 +9,7 @@
 <body>
 <div class="container-fluid">
 <div class="jumbotron">
-<h2>Hi</h2>
-<p>Images of xxxx </p>
+<h2>Here is your uploaded image</h2>
 </div>
 </div>
 <div class="container">
@@ -21,14 +20,14 @@
 			</a>
 		</div>
 	</div>
-		</div>
-		<div >
+		</div>	
+		<div >	
 		<a href="/addpic" class="btn btn-success">Add a picture</a>
-		<a href="/users" class="btn btn-success">Users</a>
-			<a href="/index" class="btn btn-success">Frontpage</a>
-			<form th:action="@{/logout}" method="post">
-			<input class="btn btn-success" type="submit" value="Sign Out"/>
-			</form>
+		<a href="/users" class="btn btn-success">Pictures</a>
+		<a href="/index" class="btn btn-success">Frontpage</a>
 		</div>
+		<form th:action="@{/logout}" method="post">
+		<input class="btn btn-success" type="submit" value="Sign Out"/>
+		</form>
 	</body>
 </html>

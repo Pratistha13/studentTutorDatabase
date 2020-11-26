@@ -14,7 +14,7 @@
 </div>
 </div>
 <div class="container">
-<div th:each="file : ${files}">
+	<div th:each="file : ${files}">
 		<div >
 			<a target="_blank" th:href="${file}"> <img th:src="${file}"
 				height="200" />
@@ -29,14 +29,15 @@
 				</form>
 		</div>
 	</div>
-		</div>
-		<div class="napit-rivi">
+</div>
+		<div>
 		<a href="/addpic" class="btn btn-success">Add a picture</a>
 		<a href="/users" class="btn btn-success">Users</a>
-			<a href="/index" class="btn btn-success">Frontpage</a>
-			<form th:action="@{/logout}" method="post">
-			<input class="btn btn-success" type="submit" value="Sign Out"/>
-			</form>
+		<a href="/index" class="btn btn-success">Frontpage</a>
 		</div>
-	</body>
+		
+		<form th:action="@{/logout}" method="post">
+		<input class="btn btn-success" type="submit" value="Sign Out"/>
+		</form>
+</body>
 </html>

@@ -24,6 +24,7 @@ public class TutorController {
 
 	@Autowired
 	DepartmentRepository drepository;
+	
 
 	// home page
 	@RequestMapping("/")
@@ -62,6 +63,7 @@ public class TutorController {
 	public String addTutor(Model model) {
 		model.addAttribute("tutor", new Tutor());
 		model.addAttribute("departments", drepository.findAll());
+		
 		return "addTutor";
 	}
 
@@ -77,6 +79,7 @@ public class TutorController {
 	public String editTutor(@PathVariable("id") Long tutorId, Model model) {
 		model.addAttribute("tutor", repository.findById(tutorId));
 		model.addAttribute("departments", drepository.findAll());
+		
 		return "editTutor";
 	}
 
