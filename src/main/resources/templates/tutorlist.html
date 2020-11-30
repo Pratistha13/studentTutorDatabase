@@ -22,7 +22,9 @@
 					<li class="nav-item active"><a class="nav-link" href="#"
 						th:href="@{/list}">Tutors</a></li>					
 					<li class="nav-item "><a class="nav-link" href="#"
-						th:href="@{/stlist}">Students </a></li>						
+						th:href="@{/stlist}">Students </a></li>	
+					<li class="nav-item"><a class="nav-link" href="#"
+						th:href="@{/contact}">Contact Us </a></li>						
 				</ul>
 		</nav>
 		</div>
@@ -50,7 +52,6 @@
 		    <th>Phone number</th>
 		    <th>Date of birth</th>
 		    <th>Department</th>
-		    <th>Pictures </th>
 			<th>Edit</th>
 			<th sec:authorize="hasAuthority('ADMIN')"> Delete </th>
 		</tr>
@@ -61,8 +62,7 @@
 			    		<td th:text="${tutor.address}"></td>
 			    		<td th:text="${tutor.phone}"></td>
 			    		<td th:text="${tutor.dob}"></td>
-			    		<td th:text="${tutor.department.name}"></td> 
-			    		<td> <a th:href="@{/addpic}">Pictures</a></td> 			    			
+			    		<td th:text="${tutor.department.name}"></td>  			    			
 						<td><a th:href="@{/edit/{id}(id=${tutor.id})}"
 							class="btn btn-warning"> Edit </a></td>
 						<td sec:authorize="hasAuthority('ADMIN')">
@@ -71,6 +71,7 @@
 								
 					</tr>
 				</table>
+				
 				
 	<a href="/add" class="btn btn-outline-success">Add new tutor</a>
 	<a href="/" class="btn btn-outline-success">Back to main page</a>

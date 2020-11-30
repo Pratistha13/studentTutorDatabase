@@ -22,7 +22,9 @@
 					<li class="nav-item"><a class="nav-link" href="#"
 						th:href="@{/list}">Tutors</a></li>					
 					<li class="nav-item  active "><a class="nav-link" href="#"
-						th:href="@{/stlist}">Students </a></li>						
+						th:href="@{/stlist}">Students </a></li>	
+					<li class="nav-item"><a class="nav-link" href="#"
+						th:href="@{/contact}">Contact Us </a></li>						
 				</ul>
 		</nav>
 		</div>
@@ -50,7 +52,6 @@
 		    <th>Semester</th>
 		    <th>Phone number</th>
 		    <th>Department</th>
-		    <th>Pictures</th>
 			<th>Edit</th>
 			<th sec:authorize="hasAuthority('ADMIN')"> Delete </th>
 		</tr>
@@ -61,7 +62,6 @@
     		<td th:text="${student.semester}"></td>
     		<td th:text="${student.phone}"></td>
     		<td th:text="${student.department.name}"></td> 	
-    		<td> <a th:href="@{/addpic}">Pictures</a></td> 	
 			<td><a th:href="@{/editstudent/{id}(id=${student.id})}"
 				class="btn btn-warning"> Edit </a></td>
 			<td sec:authorize="hasAuthority('ADMIN')">

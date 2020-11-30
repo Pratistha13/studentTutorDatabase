@@ -1,9 +1,5 @@
 package com.example.studentTutorDatabase;
 
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,11 +23,6 @@ public class StudentTutorDatabaseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StudentTutorDatabaseApplication.class, args);
-	}
-	
-	@Bean
-	Path path(){
-		return Paths.get(System.getProperty("java.io.tmpdir"));
 	}
 	
 	@Bean
